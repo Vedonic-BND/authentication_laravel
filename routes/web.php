@@ -89,3 +89,13 @@ Route::get('/user/{id}', [UserController::class, 'show']);
 
 
 Route::get('/students', [StudentsController::class, 'index']);
+
+
+// COMMON ROUTE NAMING
+// index - show all data
+// show - show a single data
+// create - show a form for creating new user
+// store - store data
+// edit - show form to edit data
+// update - update data
+// destroy - delete data

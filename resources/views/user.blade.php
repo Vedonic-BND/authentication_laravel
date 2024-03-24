@@ -12,6 +12,7 @@
         {{-- @dd($data); --}}
 
         {{-- simple string interpolation - inserting string or the process of replacing placeholders with values in a string literal --}}
+        <button>Goto Home</button>
         <h1>Hello! I'm user {{ $id }}</h1>
         <p>I'm {{ $name }}, {{ $age }} years old. You can email me at {{ $email }}. 😊</p>
         <p>Note: {{ print_r($data) }}</p>
