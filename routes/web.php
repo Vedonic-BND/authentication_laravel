@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\StudentsController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -73,22 +73,22 @@ use Illuminate\Http\Request;
 // });
 
 // default route
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
-//default controller to route class connection
-Route::get('/user', [UserController::class, 'index']);
+// //default controller to route class connection
+// Route::get('/user', [UserController::class, 'index']);
 
 // alias add name() method
 // Route::get('/user', [UserController::class, 'index'])->name('<alias>');
 // Route::get('/user/{id}', [UserController::class, 'show'])->middleware('auth');
 
-Route::get('/user/{id}', [UserController::class, 'show']);
+// Route::get('/user/{id}', [UserController::class, 'show']);
 
 
 
-Route::get('/students', [StudentsController::class, 'index']);
+
 
 
 // COMMON ROUTE NAMING
@@ -99,3 +99,13 @@ Route::get('/students', [StudentsController::class, 'index']);
 // edit - show form to edit data
 // update - update data
 // destroy - delete data
+
+
+
+Route::get("/", [UsersController::class, "home"])->middleware('auth');
+Route::get('/students', [StudentsController::class, 'index']);
+Route::get("/login", [UsersController::class, "login"])->name('login')->middleware('guest');
+Route::post("/login/process", [UsersController::class, "process"]);
+Route::get("/register", [UsersController::class, "register"]);
+Route::post("/store", [UsersController::class, "store"]);
+Route::post("/logout", [UsersController::class, "logout"]);
